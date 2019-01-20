@@ -1,0 +1,25 @@
+title: Another Day
+name: Sketch Site
+email: bach.adam@gmail.com
+gtihub_userneame: bachadam
+
+markdown: kramdown
+plugins:
+  - jekyll-redirect-from
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-feed
+
+collections:
+  authors:
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "posts"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
