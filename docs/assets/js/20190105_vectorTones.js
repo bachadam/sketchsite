@@ -342,7 +342,7 @@ function keyPressed() {
 
         default:
             bDrawInfo = !bDrawInfo;
-            break:
+            break;
 
 
     }
