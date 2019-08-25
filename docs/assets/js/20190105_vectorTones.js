@@ -247,11 +247,21 @@ function collectPoint() {
 
 function drawHelp() {
 
+    push();
     fill( 255, 255, 255, 50 );
     rect( 100, 100, 300, 300 );
 
     stroke( 255, 255, 255 );
+    fill( 255, 255, 255 );
     text("Draw lines by clicking on the grid", 115, 115);
+
+    text("Press '+' to speed up  slide", 115, 140);
+    text("Press '-' to slow down  slide", 115, 165);
+    text("Press 'r' to reverse direction", 115, 190);
+    text("Press 'q' to remove line", 115, 215);
+    text("Press any key to hide this text", 115, 240);
+    pop();
+
 
 }
 
