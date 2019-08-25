@@ -6,6 +6,9 @@ let clickCount = 0;
 let xStart;
 let yStart;
 
+// draw help info or not
+let bDrawInfo = true;
+
 // to hold our Soundline objects
 let soundLines = [];
 // all audio through the limiter then master out
@@ -204,6 +207,11 @@ function draw() {
 
     }
 
+    if ( bDrawInfo )
+    {
+        drawHelp();
+    }
+
 }
 
 function collectPoint() {
@@ -234,6 +242,16 @@ function collectPoint() {
         collected = createVector( mouseX / width, mouseY / height );
 
     }
+
+}
+
+function drawHelp() {
+
+    fill( 255, 255, 255, 50 );
+    rect( 100, 100, 300, 300 );
+
+    stroke( 255, 255, 255 );
+    text("Draw lines by clicking on the grid", 115, 115);
 
 }
 
@@ -321,6 +339,10 @@ function keyPressed() {
             }
 
             break;
+
+        default:
+            bDrawInfo = !bDrawInfo;
+            break:
 
 
     }
