@@ -1,0 +1,16 @@
+body {
+    background: rgb( 25, 25, 25 );
+}
+
+#unmute-button {
+    background: rgba(47, 218, 223, 0.27);
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 12px;
+    top: 12px;
+}
+
+#unmute-button.muted {
+    background: rgba(247, 54, 11, 0.26);
+}
