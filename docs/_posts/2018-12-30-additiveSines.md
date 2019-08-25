@@ -8,3 +8,14 @@ author: bachadam
 
 <script src="{{ base.url | prepend: site.url }}/assets/js/scalesJS/musicalScales.js"></script>
 <script src="{{ base.url | prepend: site.url }}/assets/js/20181230_additiveSines.js"></script>
+
+<style media="screen">
+
+    #controls{
+        position: absolute;
+        bottom: 0;
+    }
+
+</style>
+
+<div id="controls"></div>
