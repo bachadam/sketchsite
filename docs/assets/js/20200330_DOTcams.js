@@ -31,8 +31,8 @@ function setup() {
 
     }
 
-	frameRate( 0.25 );
-
+	// frameRate( 0.25 );
+	noLoop();
 }
 
 function draw() {
@@ -46,9 +46,9 @@ function draw() {
 
 }
 
-// timedRefresh(1000);
+timedRefresh(3000);
 
 function timedRefresh(time) {
-	setTimeout( draw() , time );
-	// setTimeout("location.reload(true);", time);
+	// setTimeout( draw() , time );
+	setTimeout("location.reload(true);", time);
 }
