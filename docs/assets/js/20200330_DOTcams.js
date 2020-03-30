@@ -46,7 +46,7 @@ function draw() {
 
 }
 
-timedRefresh(3000);
+// timedRefresh(3000);
 
 function timedRefresh(time) {
 	// setTimeout( draw() , time );
