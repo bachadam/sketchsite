@@ -33,7 +33,7 @@ function setup() {
 
     }
 
-	frameRate( 0.25 );
+	frameRate( 1 );
 	// noLoop();
 }
 
