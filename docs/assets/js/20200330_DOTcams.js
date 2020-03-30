@@ -19,7 +19,7 @@ function setup() {
 							+'.jpg',
 							'camera'
 							);
-        img.size( 200, 160 );
+        img.size( 340, 240 );
 
 		img.style( 'padding', '0px' );
 		img.style( 'margin', '-5px' );
