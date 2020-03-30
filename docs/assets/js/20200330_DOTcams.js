@@ -14,9 +14,11 @@ function setup() {
 
     for ( let i = 0; i < manhattanCams.length; i++ ) {
 
-        let img = createImg( 'http://207.251.86.238/cctv'
-							+ manhattanCams[i]
-							+'.jpg',
+		let img = createImg( 'http://207.251.86.238/cctv'
+							+  manhattanCams[i]
+							+ '.jpg'
+							+ '?rand='
+							+ Math.random(),
 							'camera'
 							);
         img.size( 340, 240 );
@@ -31,15 +33,23 @@ function setup() {
 
     }
 
-	// frameRate( 0.25 );
-	noLoop();
+	frameRate( 0.25 );
+	// noLoop();
 }
 
 function draw() {
 
 	for ( let i = 0; i < imgs.length; i++ ) {
 
-		let url = imgs[ i ].elt.src;
+		// let url = imgs[ i ].elt.src;
+		// imgs[ i ].elt.src = url;
+
+		let url = 'http://207.251.86.238/cctv'
+							+ manhattanCams[i]
+							+ '.jpg'
+							+ '?rand='
+							+ Math.random();
+
 		imgs[ i ].elt.src = url;
 
 	}
@@ -48,7 +58,7 @@ function draw() {
 
 // timedRefresh(3000);
 
-function timedRefresh(time) {
-	// setTimeout( draw() , time );
-	setTimeout("location.reload(true);", time);
-}
+// function timedRefresh(time) {
+// 	// setTimeout( draw() , time );
+// 	setTimeout("location.reload(true);", time);
+// }
