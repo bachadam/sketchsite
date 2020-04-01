@@ -78,7 +78,7 @@ function preload() {
     for ( let i = 0; i < NUM_ORBITS; i++ ) {
 
         let sampleIndex = i % NUM_SAMPS;
-        let soundFile = loadSound( '../samples/01/' + sampleIndex + '.wav',
+        let soundFile = loadSound( '../../../samples/01/' + sampleIndex + '.wav',
                                 function() {
 
                                     console.log( "Loaded Samplefile "
