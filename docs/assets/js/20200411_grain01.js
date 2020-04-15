@@ -101,33 +101,47 @@ class GrainEmitter {
 
             }
 
-        }
-
-        // remove if dead
-        for ( let i = this.grains.length-1; i >= 0; --i ) {
-
+            // reset if dead
             if ( !this.grains[i].isAlive ) {
 
-                // this.removeGrain( i );
-
-                this.grains.push( this.grains.splice( i, 1 )[0] );
-                this.grains.pop();
-
-                this.addCounter += 1;
+                this.grains[i].xPos = 0;
+                this.grains[i].yPos = 0;
+                this.grains[i].moveVec.x =  Math.sin( millis() * 6.00001 );
+                this.grains[i].moveVec.y = Math.cos( millis() * 6.00 );
+                this.grains[i].isAlive = true
 
             }
 
         }
 
-        while ( this.addCounter > 0 ) {
 
-            this.createGrain();
-            this.addCounter--;
-
-        }
+        // not removing in this version
+        // just resetting ones already created
+        //
+        // // remove if dead
+        // for ( let i = this.grains.length-1; i >= 0; --i ) {
+        //
+        //     if ( !this.grains[i].isAlive ) {
+        //
+        //         // this.removeGrain( i );
+        //
+        //         this.grains.push( this.grains.splice( i, 1 )[0] );
+        //         this.grains.pop();
+        //
+        //         this.addCounter += 1;
+        //
+        //     }
+        //
+        // }
+        //
+        // while ( this.addCounter > 0 ) {
+        //
+        //     this.createGrain();
+        //     this.addCounter--;
+        //
+        // }
 
         // update hits
-
         for ( let i = 0; i < this.hits.length; i++ ) {
 
             this.hits[i].life -= ( 255 / 10 );
@@ -173,8 +187,6 @@ class GrainEmitter {
             stroke( 255, 0, 0, 50 );
             strokeWeight( 1 );
             line( 0, 0, this.hits[i].xPos, this.hits[i].yPos );
-
-            // arc( 0, 0, this.boundry/2, this.boundry/2, 0, this.hits[i].angle );
 
         }
 
@@ -235,9 +247,9 @@ function draw() {
 
     emitter.removeHits();
 
-    fill( 255 );
-    noStroke();
-    text( frameRate().toFixed(2), 25,25 );
+    // fill( 255 );
+    // noStroke();
+    // text( frameRate().toFixed(2), 25,25 );
 
 }
 
