@@ -22,7 +22,7 @@ class GrainEmitter {
         this.pbMin = 1;
         this.synth = new Tone.GrainPlayer( {
 
-            'url': '../samples/01/1_edit.wav',
+            'url': '../../../assets/samples/01/1_edit.wav',
             'loop': 'true',
             'grainSize': this.grainDur,
             'overlap': 0.09
