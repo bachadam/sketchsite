@@ -3,6 +3,7 @@
 let canvasHeight = 600;
 let canvasWidth = 600;
 
+
 const NUM_GRAINS = 600;
 
 
@@ -17,9 +18,11 @@ class GrainEmitter {
         this.addCounter = 0;
         this.boundry = 400;
         this.grainDur = 0.1001;
+        this.pbMax = 1;
+        this.pbMin = 1;
         this.synth = new Tone.GrainPlayer( {
 
-            'url': '../samples/01/1_edit.wav',
+            'url': './samples/1_edit.wav',
             'loop': 'true',
             'grainSize': this.grainDur,
             'overlap': 0.09
@@ -63,7 +66,7 @@ class GrainEmitter {
         const ls = map( a, -PI, PI, 0, this.synth.buffer.duration );
         // let le = ls + 0.015;
         const dTune = Math.floor( Math.random() * 10 - 5 );
-        const pbr = 1;//  Math.random( 0.1, 2 );
+        const pbr = 1 * ( Math.random() * (this.pbMax - this.pbMin) + this.pbMin );//  Math.random( 0.1, 2 );
 
         this.synth.loopStart = ls;
         this.synth.loopEnd = ls + 0.02;
@@ -101,47 +104,33 @@ class GrainEmitter {
 
             }
 
-            // reset if dead
+        }
+
+        // remove if dead
+        for ( let i = this.grains.length-1; i >= 0; --i ) {
+
             if ( !this.grains[i].isAlive ) {
 
-                this.grains[i].xPos = 0;
-                this.grains[i].yPos = 0;
-                this.grains[i].moveVec.x =  Math.sin( millis() * 6.00001 );
-                this.grains[i].moveVec.y = Math.cos( millis() * 6.00 );
-                this.grains[i].isAlive = true
+                // this.removeGrain( i );
+
+                this.grains.push( this.grains.splice( i, 1 )[0] );
+                this.grains.pop();
+
+                this.addCounter += 1;
 
             }
 
         }
 
+        while ( this.addCounter > 0 ) {
 
-        // not removing in this version
-        // just resetting ones already created
-        //
-        // // remove if dead
-        // for ( let i = this.grains.length-1; i >= 0; --i ) {
-        //
-        //     if ( !this.grains[i].isAlive ) {
-        //
-        //         // this.removeGrain( i );
-        //
-        //         this.grains.push( this.grains.splice( i, 1 )[0] );
-        //         this.grains.pop();
-        //
-        //         this.addCounter += 1;
-        //
-        //     }
-        //
-        // }
-        //
-        // while ( this.addCounter > 0 ) {
-        //
-        //     this.createGrain();
-        //     this.addCounter--;
-        //
-        // }
+            this.createGrain();
+            this.addCounter--;
+
+        }
 
         // update hits
+
         for ( let i = 0; i < this.hits.length; i++ ) {
 
             this.hits[i].life -= ( 255 / 10 );
@@ -161,14 +150,12 @@ class GrainEmitter {
 
     draw() {
 
-        // fill( 255, 120 );
         stroke( 255, 120 );
         for ( let i = 0; i < this.grains.length; i++ ) {
 
             push();
             translate( this.grains[i].xPos, this.grains[i].yPos );
             point( 0, 0 );
-            // ellipse( 0, 0, 4 );
             pop();
 
         }
@@ -187,6 +174,8 @@ class GrainEmitter {
             stroke( 255, 0, 0, 50 );
             strokeWeight( 1 );
             line( 0, 0, this.hits[i].xPos, this.hits[i].yPos );
+
+            // arc( 0, 0, this.boundry/2, this.boundry/2, 0, this.hits[i].angle );
 
         }
 
@@ -253,8 +242,25 @@ function draw() {
 
 }
 
+function mouseMoved() {
+
+    const playbackRateMax = map( mouseX, 0, windowWidth, 0.1, 2.0);
+    const playbackRateMin = map( mouseY, 0, windowHeight, 0.1, 2.0 );
+
+    emitter.pbMax = playbackRateMax;
+    emitter.pbMin = playbackRateMin;
+
+}
+
 function mousePressed() {
 
-    console.log( "GRAINS:: " + emitter.grains.length );
+    for ( let i = 0; i < emitter.grains.length; i++ ) {
+
+        emitter.grains[i].isAlive = false;
+
+    }
+
+    emitter.pbMax = 1;
+    emitter.pbMin = 1;
 
 }
