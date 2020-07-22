@@ -3,7 +3,7 @@ layout: post
 author: bachadam
 ---
 
-<script src="{{ base.url | prepend: site.url }}/assets/js/202004013_lens.js"></script>
+<script src="{{ base.url | prepend: site.url }}/assets/js/20200413_lens.js"></script>
 
 <style media="screen">
 
