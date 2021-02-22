@@ -1,0 +1,99 @@
+* {
+    font-family: 'Russo One', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    /* background-color: lightblue; */
+    /* background-image: radial-gradient(orange, pink); */
+
+}
+
+@keyframes rainbow {
+    0% { -webkit-filter: hue-rotate(0deg);}
+    50% { -webkit-filter: hue-rotate(360deg); }
+    100% { -webkit-filter: hue-rotate(0deg); }
+    /* to { filter:hue-rotate(360deg); } */
+}
+
+#wrap {
+    position:absolute;
+    top:0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    background-image: radial-gradient(orange, pink);
+    animation-name: rainbowSlow;
+    animation-duration: 60s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@-webkit-keyframes rainbowSlow {
+    from { -webkit-filter: hue-rotate(0deg);}
+    to { -webkit-filter: hue-rotate(360deg); }
+    /* to { filter:hue-rotate(360deg); } */
+}
+
+#title {
+    position:relative;
+    margin: auto;
+    border: 1px solid rgba(255, 255, 255, 0.0);
+}
+
+#title-stack1 {
+    top:0;
+    left:0;
+    right:0;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+}
+
+[id^=titleText] {
+    text-align: center;
+    font-size: 40px;
+    color: rgba(255, 255,255, 0.0);
+    text-shadow: 0px -5px 3px rgba(0, 255, 255, 0.33);
+
+    animation: rainbow 3s linear infinite;
+}
+
+#titleText-1 {
+    text-shadow: -7px 7px 3px rgba(255, 255, 0, 0.33);
+}
+
+#titleText-2 {
+    text-shadow: 7px 2px 7px rgba(255, 0, 255, 0.33); /*magenta */
+}
+
+marquee {
+    font-family: 'Satisfy', cursive;
+}
+
+#all-inputs {
+    /* border: 1px solid red; */
+    margin: auto;
+    width: 200px;
+}
+
+#all-inputs div {
+    margin-bottom: 15%;
+}
+
+div p {
+    font-size: 12px;
+    text-align: center;
+    line-height: 50%;
+}
+
+div h3 {
+    text-align: center;
+}
+
+input {
+    display: block;
+    margin: auto;
+}
