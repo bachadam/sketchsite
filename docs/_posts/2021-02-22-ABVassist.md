@@ -2,19 +2,15 @@
 layout: post
 author: bachadam
 ---
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🧚‍♀️</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
 
-  <link src="{{ base.url | prepend: site.url }}/assets/css/abvStyle.css">
-  <script src="../../p5.js"></script>
+ <link src="{{ base.url | prepend: site.url }}/assets/css/abvStyle.css">
+ <script src="../../p5.js"></script>
   <!-- <script src="../../addons/p5.sound.min.js"></script> -->
-</head>
 
 <body>
     <div id="wrap">
